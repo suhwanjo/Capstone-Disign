@@ -1,0 +1,131 @@
+nav {background-color: gray;}
+
+.back-image {
+    background: url('/static/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.main-title {
+    color: black;
+    width: 500px;
+    height: 100px;
+    margin: 150px auto 50px auto;
+    text-align: center;
+}
+
+.move-btn {
+    height: 100px;
+    width: 300px;
+    margin: 300px auto 50px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sub-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 200px;
+    margin: 30px auto 30px auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px 30px 20px 30px;
+    background-color: white;
+}
+
+.sub-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.first-img {
+    width: 450px;
+    height: 450px;
+    border: 1px solid gray;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-img {
+    width: 450px;
+    height: 450px;
+    border: 1px solid gray;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.third-img {
+    width: 450px;
+    height: 450px;
+    border: 1px solid gray;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-detection {
+    width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto 30px auto;
+}
+
+.home-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.sub-vid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 200px;
+    margin: 30px auto 30px auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px 30px 20px 30px;
+    background-color : white;
+}
+
+.first-vid {
+    width: 800px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 30px auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.home-button {
+    display: flex;
+    justify-content: center;
+}
+
+.img-background {
+    background: url('/static/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

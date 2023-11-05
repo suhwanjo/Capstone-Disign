@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}이미지 업로드{% endblock %}
+
+{% block content %}
+<div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">딥페이크 탐지</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'upload_img' %}">Image</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'upload_vid' %}">video</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+<div class="img-background">
+  <div class="sub-img">
+    <form action="{% url 'upload_img' %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <!--
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">이메일 주소</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" name="email" required>
+        </div>
+        -->
+        <div class="mb-3">
+          <label for="formFile" class="form-label"><i class="bi bi-file-person"></i> 이미지 업로드</label>
+          <input class="form-control" type="file" id="formFile" name="image" accept="image/gif, image/jpeg, image/png" required>
+        </div>
+        <div class="sub-button">
+            <input type="submit" onclick="showAlert()" value="탐지하기">
+       </div>
+    </form>
+  </div>
+</div>
+<div class="image-detection">
+  <div class="first-img">
+    {% if post %}
+    <img src="data:image/jpeg;base64,{{ image }}" class="img-fluid" alt="..." style="width: 380px; height: 380px;">
+    <p>딥페이크일 확률이<span style="color: red; font-weight: bold;">{{probability}}</span>입니다.</p>
+    {% else %}
+    <p>원본 이미지에 대한 탐지 결과가</p>
+    <p>확률 값과 함께 이 곳에 표시됩니다.</p>
+    {% endif %}
+  </div>
+  <div class="second-img">
+    {% if post %}
+    <p>{{ email }}</p>
+    <img src="data:image/jpeg;base64,{{ saliency }}" class="img-fluid" alt="..." style="width: 380px; height: 380px;">
+    {% else %}
+    <p>Saliency Map이 이 곳에 표시됩니다.</p>
+    {% endif %}
+  </div>
+  <div class="third-img">
+    {% if post %}
+    <img src="data:image/jpeg;base64,{{ overlay }}" class="img-fluid" alt="..." style="width: 380px; height: 380px;">
+    {% else %}
+    <p>원본 이미지에 Saliency Map을 오버랩한 이미지가</p>
+    <p>이 곳에 표시됩니다.</p>
+    {% endif %}
+  </div>
+</div>
+<div class="home-btn">
+  <a href="{% url 'index' %}"><button type="button" class="btn btn-outline-secondary"><i class="bi bi-house"></i> Home</button></a>
+</div>
+{% endblock %}

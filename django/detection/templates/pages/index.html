@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}메인 화면{% endblock %}
+
+{% block content %}
+<body class="back-image">
+    <div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">딥페이크 탐지</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'upload_img' %}">Image</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'upload_vid' %}">video</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </div>
+    <div class="main-title">
+        <h1>딥페이크 탐지</h1>
+    </div>
+    <div class="move-btn">
+        <a href="{% url 'upload_img' %}"><button type="button" class="btn btn-outline-light btn-lg"><i class="bi bi-card-image"></i> 이미지</button></a>
+        <a href="{% url 'upload_vid' %}"><button type="button" class="btn btn-outline-light btn-lg"><i class="bi bi-camera-video"></i> 동영상</button></a>
+    </div>
+</body>
+{% endblock %}
